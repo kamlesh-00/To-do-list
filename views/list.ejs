@@ -6,10 +6,13 @@
 
     <div class="box">
         <% for(var i=0;i<morelihere.length;i++){ %>
-        <div class="item">
-            <input type="checkbox">
-            <p><%= morelihere[i] %></p>
-        </div>
+        <form action="/delete" method="POST">
+            <div class="item">
+                <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%= morelihere[i]._id %>">
+                <p><%= morelihere[i].name %></p>
+            </div>
+            <input type="hidden" name="listName" value="<%= listTitle %>">
+        </form>
         <% } %>   
             
         <form action="/" method="POST" class="item">
